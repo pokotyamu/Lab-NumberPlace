@@ -17,6 +17,14 @@ public class BoxPointer{
         this.row = row;
         this.line = line;
     }
+
+    public int getLine() {
+        return line;
+    }
+
+    public int getRow() {
+        return row;
+    }
     
     public void nextPoint(){
         if(line == 8){

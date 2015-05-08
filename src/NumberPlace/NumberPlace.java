@@ -5,6 +5,8 @@
  */
 package NumberPlace;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author pokotyamu
@@ -17,7 +19,12 @@ public class NumberPlace {
     }
 
     public void solve() {
-        
         BoxPointer bp =  new BoxPointer(0,0);
+        backTrack(box,bp);
+    }
+
+    private void backTrack(NumberBox box, BoxPointer bp) {
+        ArrayList<Integer> searched_number = BoxAnalysis.search(box,bp);
+        System.out.println(searched_number);
     }
 }

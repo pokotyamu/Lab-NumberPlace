@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  * @author pokotyamu
  */
 public class NumberBox {
-    ArrayList<ArrayList<Integer>>matrix;
+    private ArrayList<ArrayList<Integer>> matrix;
     public NumberBox() {
         newgame();
     }
@@ -56,6 +56,12 @@ public class NumberBox {
         return strb.toString();
     }
 
+    public ArrayList<ArrayList<Integer>> getMatrix() {
+        return matrix;
+    }
     
+    public ArrayList<Integer> getLineNumbers(int index){
+        return matrix.get(index);
+    }
     
 }
