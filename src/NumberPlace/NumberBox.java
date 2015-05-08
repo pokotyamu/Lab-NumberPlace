@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  * @author pokotyamu
  */
 public class NumberBox {
-    ArrayList<ArrayList<Integer>>matrix;
+    private ArrayList<ArrayList<Integer>> matrix;
     public NumberBox() {
         newgame();
     }
@@ -51,11 +51,35 @@ public class NumberBox {
             strb.append(lineNumber);
             strb.append("\n");
         }
-        
-        
         return strb.toString();
     }
 
+    public ArrayList<ArrayList<Integer>> getMatrix() {
+        return matrix;
+    }
     
+    public ArrayList<Integer> getLineNumbers(int line_index){
+        return matrix.get(line_index);
+    }
+
+    public ArrayList<Integer> getRowNumbers(int row_index) {
+        ArrayList<Integer> temp = new ArrayList<>();
+        for (ArrayList<Integer> line_list : matrix) {
+            temp.add(line_list.get(row_index));
+        }
+        return temp;
+    }
+
+    public ArrayList<Integer> getBrockNumbers(BoxPointer bp) {
+        ArrayList<Integer> temp = new ArrayList<>();
+        int row_index = bp.getRow() - bp.getRow() % 3;
+        for (int count = 0; count < 3; count++,row_index++) {
+            int line_index = bp.getLine() - bp.getLine() % 3;
+            for (int j = 0; j < 3; j++,line_index++) {
+                temp.add(matrix.get(row_index).get(line_index));
+            }
+        }
+        return temp;
+    }
     
 }

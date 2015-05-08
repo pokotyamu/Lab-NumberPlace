@@ -18,5 +18,5 @@ public class NumPlaMain {
         NumberPlace n = new NumberPlace();
         n.solve();
     }
-    
+
 }
