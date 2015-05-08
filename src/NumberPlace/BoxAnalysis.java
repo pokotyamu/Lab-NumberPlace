@@ -18,6 +18,7 @@ public class BoxAnalysis {
     public static ArrayList<Integer> search(NumberBox box, BoxPointer bp) {
         ArrayList<Integer> searched_list = lineSearch(box,bp);
         searched_list.retainAll(rowSearch(box, bp));
+        searched_list.retainAll(brockSearch(box, bp));
         return searched_list;
     }
 
@@ -30,6 +31,12 @@ public class BoxAnalysis {
     private static ArrayList<Integer> rowSearch(NumberBox box, BoxPointer bp) {
         ArrayList<Integer> search_list = (ArrayList<Integer>) NUMBERS.clone();
         search_list.removeAll(box.getRowNumbers(bp.getRow()));
+        return search_list;
+    }
+
+    private static ArrayList<Integer> brockSearch(NumberBox box, BoxPointer bp) {
+        ArrayList<Integer> search_list = (ArrayList<Integer>) NUMBERS.clone();
+        search_list.removeAll(box.getBrockNumbers(bp));
         return search_list;
     }
 }

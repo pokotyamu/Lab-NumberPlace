@@ -51,8 +51,6 @@ public class NumberBox {
             strb.append(lineNumber);
             strb.append("\n");
         }
-        
-        
         return strb.toString();
     }
 
@@ -68,6 +66,18 @@ public class NumberBox {
         ArrayList<Integer> temp = new ArrayList<>();
         for (ArrayList<Integer> line_list : matrix) {
             temp.add(line_list.get(row_index));
+        }
+        return temp;
+    }
+
+    public ArrayList<Integer> getBrockNumbers(BoxPointer bp) {
+        ArrayList<Integer> temp = new ArrayList<>();
+        int row_index = bp.getRow() - bp.getRow() % 3;
+        for (int count = 0; count < 3; count++,row_index++) {
+            int line_index = bp.getLine() - bp.getLine() % 3;
+            for (int j = 0; j < 3; j++,line_index++) {
+                temp.add(matrix.get(row_index).get(line_index));
+            }
         }
         return temp;
     }
