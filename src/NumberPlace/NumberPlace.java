@@ -25,6 +25,5 @@ public class NumberPlace {
 
     private void backTrack(NumberBox box, BoxPointer bp) {
         ArrayList<Integer> searched_number = BoxAnalysis.search(box,bp);
-        System.out.println(searched_number);
     }
 }
