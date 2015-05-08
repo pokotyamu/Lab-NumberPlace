@@ -81,5 +81,9 @@ public class NumberBox {
         }
         return temp;
     }
+
+    public void changeNumber(int changed_number, BoxPointer bp) {
+        matrix.get(bp.getRow()).set(bp.getLine(), changed_number);
+    }
     
 }
