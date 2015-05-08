@@ -60,8 +60,16 @@ public class NumberBox {
         return matrix;
     }
     
-    public ArrayList<Integer> getLineNumbers(int index){
-        return matrix.get(index);
+    public ArrayList<Integer> getLineNumbers(int line_index){
+        return matrix.get(line_index);
+    }
+
+    public ArrayList<Integer> getRowNumbers(int row_index) {
+        ArrayList<Integer> temp = new ArrayList<>();
+        for (ArrayList<Integer> line_list : matrix) {
+            temp.add(line_list.get(row_index));
+        }
+        return temp;
     }
     
 }
